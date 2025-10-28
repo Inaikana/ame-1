@@ -23,20 +23,40 @@
 ///
 ///
 
-const S = [23, 15, 59, 4, 17];
+// const minVal = Math.min(...list1);
+// console.log(minVal);
+// //找出陣列最小值 的函數
+
+const list1 = [17, 15, 16, 16, 16, -1, 16, 0, 0, 2, 5.5, 77.77, 3, 17];
 
 function getMin(A) {
-  let chisai;
-  for (let i = 0; i <= A.length; i++) {
-    if (A[i] < A[i + 1]) {
-      chisai = A[i];
-    } else if (A[i] >= A[i + 1]) {
-      chisai = A[i];
+  // 找出陣列最小值 的函數
+  let chiisai = A[0];
+  for (let i = 0; i < A.length; i++) {
+    if (A[i] < chiisai) {
+      chiisai = A[i];
     }
   }
-  return chisai;
+  return chiisai;
 }
 
-// 以上 找出陣列最小值 的函數
+const m = getMin(list1); //  list1的最小值
 
-console.log(getMin(S));
+const newA = list1.filter((numb) => numb !== m); // 去除最小值的陣列
+
+console.log(newA);
+
+// function getIndex(A, numb) {
+//   // 找出最小值的index的函數
+//   let doko;
+//   for (let j = 0; j < A.length; j++) {
+//     if (A[j] == numb) {
+//       doko = j;
+//       return doko;
+//     }
+//   }
+// }
+
+// const koko = getIndex(list1, m); // list1的最小值的位置
+
+// const newA = list1.splice(koko, 1); // 移除list1的最小值的新陣列
