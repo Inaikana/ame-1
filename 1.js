@@ -23,14 +23,20 @@
 ///
 ///
 
-const A = [23, 15, 59, 4, 17];
+const S = [23, 15, 59, 4, 17];
 
-let chisai;
-for (let i = 0; i <= A.length; i++) {
-  if (A[i] < A[i + 1]) {
-    chisai = A[i];
-  } else if (A[i] >= A[i + 1]) {
-    chisai = A[i];
+function getMin(A) {
+  let chisai;
+  for (let i = 0; i <= A.length; i++) {
+    if (A[i] < A[i + 1]) {
+      chisai = A[i];
+    } else if (A[i] >= A[i + 1]) {
+      chisai = A[i];
+    }
   }
+  return chisai;
 }
-console.log(chisai);
+
+// 以上 找出陣列最小值 的函數
+
+console.log(getMin(S));
