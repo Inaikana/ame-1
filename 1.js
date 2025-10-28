@@ -7,12 +7,30 @@
 
 //需要寫一小段文字說明為什麼這樣做
 
-function sumOfSmallestValues(arr) {
-  // 實作程式碼寫在這裡
+// function sumOfSmallestValues(arr) {
+//   // 實作程式碼寫在這裡
+// }
+
+// const list1 = [19, 5, 42, 2, 77];
+// const list2 = [23, 15, 59, 4, 17];
+
+// console.log(sumOfSmallestValues(list1)); // 印出 7
+// console.log(sumOfSmallestValues(list2)); // 印出 19
+
+///
+///
+///
+///
+///
+
+const A = [23, 15, 59, 4, 17];
+
+let chisai;
+for (let i = 0; i <= A.length; i++) {
+  if (A[i] < A[i + 1]) {
+    chisai = A[i];
+  } else if (A[i] >= A[i + 1]) {
+    chisai = A[i];
+  }
 }
-
-const list1 = [19, 5, 42, 2, 77];
-const list2 = [23, 15, 59, 4, 17];
-
-console.log(sumOfSmallestValues(list1)); // 印出 7
-console.log(sumOfSmallestValues(list2)); // 印出 19
+console.log(chisai);
