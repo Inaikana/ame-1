@@ -4,13 +4,11 @@
 // 錨典是#後面的  用來在同的網頁間互相移動
 
 function removeAnchor(url) {
-  // 實作寫在這裡
+  const hanasu = url.split("#"); // 得到一個以#分離左右兩邊的陣列 包含【#左邊】和【#右邊】 兩個元素
+  const kirei = hanasu[0]; // 我要【#左邊】的 所以用[0]
+  return kirei;
 }
 
 console.log(removeAnchor("5xcampus.com")); // 印出 5xcampus.com
 console.log(removeAnchor("5xcampus.com/#about")); // 印出 5xcampus.com/
 console.log(removeAnchor("5xcampus.com/courses/?page=1#about")); // 印出 5xcampus.com/courses/?page=1
-
-//
-
-url.split("#");
