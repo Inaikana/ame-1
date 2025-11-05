@@ -27,18 +27,17 @@ const moji = num.toString(); // 把數字轉成文字
 const ikutsu = moji.length; // 這串數字有幾個字 = 它是幾位數
 const hitotsu = [...moji]; // 數字 逐一的陣列
 
-for (
-  let j = ikutsu - 1;
-  j >= 0;
-  j-- // ikutsu = 幾位數 = 幾個數字 但陣列是從0開始 所以要-1
-) {
-  console.log(tens(j));
-}
+// for (
+//   let j = ikutsu - 1;
+//   j >= 0;
+//   j-- // ikutsu = 幾位數 = 幾個數字 但陣列是從0開始 所以要-1
+// ) {
+//   console.log(tens(j));
+// }
 
-hitotsu.reduce((a, number) => {
-
-    const x = `${tens(j)} x`
-    const y =
-//   return;
+const SS = hitotsu.reduce((a, number) => {
+  let x = `10000 x ${number}`;
+  return `${a} + ${x} `;
 }, ""); //起始值用空字串
-// console.log(tens(0));
+
+console.log(SS);
