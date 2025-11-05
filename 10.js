@@ -35,4 +35,10 @@ for (
   console.log(tens(j));
 }
 
+hitotsu.reduce((a, number) => {
+
+    const x = `${tens(j)} x`
+    const y =
+//   return;
+}, ""); //起始值用空字串
 // console.log(tens(0));
