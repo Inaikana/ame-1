@@ -16,3 +16,26 @@
 
 const numbers = [20, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5];
 let count; // 記錄
+
+const array = [
+  "apple",
+  "banana",
+  "apple",
+  "orange",
+  "banana",
+  "apple",
+  "grape",
+];
+
+// 使用 reduce 建立一個計數器 (頻率表)
+const counts = array.reduce((accumulator, value) => {
+  // 如果 accumulator 中已經有這個 key，就加 1；否則設為 1
+  accumulator[value] = (accumulator[value] || 0) + 1;
+  return accumulator;
+}, {}); // 初始值為一個空物件 {}
+
+console.log(counts);
+// 輸出: { apple: 3, banana: 2, orange: 1, grape: 1 }
+
+const CC = { A: "aa", B: "bb", C: "cc" };
+console.log(CC[aa]);
