@@ -3,15 +3,6 @@
 // 題目：把數字以 10 進位展開式呈現，數字均為大於 0 的正整數
 // 範例：9527 變成 "1000 x 9 + 100 x 5 + 10 x 2 + 7"
 
-function tens(n) {
-  // 10的n次方函數
-  let jyuu = 1; // 10的0次方為1  所以初始值為1
-  for (let i = 0; i < n; i++) {
-    jyuu *= 10;
-  }
-  return jyuu;
-}
-
 function expandedForm(num) {
   const moji = num.toString(); // 把數字轉成文字
   const ikutsu = moji.length; // 這串數字有幾個字 = 它是幾位數
@@ -23,7 +14,7 @@ function expandedForm(num) {
   // ikutsu = 幾位數 = 幾個數字
   // 10000是五位數 但後面是4個0 所以要-1
   for (let j = ikutsu - 1; j >= 0; j--) {
-    tensArr.push(tens(j));
+    tensArr.push(Math.pow(10, j));
   }
 
   //現在數字陣列跟10的次方的陣列 各個元素的位置對齊了 用迴圈組裝
