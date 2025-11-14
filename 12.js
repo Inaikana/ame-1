@@ -13,19 +13,19 @@ function add(n) {
   return mix;
 }
 
-const numberReducer = (num) => {
-  let thisRound = add(num); // 做一次數字一個一個加起來
+// const numberReducer = (num) => {
 
-  if (thisRound >= 10) {
-    // 如果結果不是一位數
-    thisRound = add(thisRound); //
-  }
-
-  return thisRound;
-};
+// };
 
 // console.log(numberReducer(9527)); // 印出 5
 // console.log(numberReducer(1450)); // 印出 1
 // console.log(numberReducer(5566108)); // 印出 4
 // console.log(numberReducer(1234567890)); // 印出 9
-console.log(numberReducer(99999999999));
+
+let thisRound = add(99); // 做一次數字一個一個加起來
+
+for (let i = 0; thisRound >= 10; i++) {
+  thisRound = add(thisRound);
+}
+
+console.log(thisRound);
