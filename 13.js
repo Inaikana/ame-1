@@ -21,42 +21,66 @@ const numberReducer = (num) => {
 };
 
 // import {numberReducer} form ./第12題.js
+// 偷第12題的數字累加來用
 
-// function isValidVatNumber(vat) {
-//   // 實作寫在這裡
-// }
+const gov = [1, 2, 1, 2, 1, 2, 4, 1]; // 把加權分數做成陣列
+const yes = [1, 2, 1, 2, 1, 2, 1]; // 移除原第7位的加權陣列
 
-// console.log(isValidVatNumber("10458575")); // true
-// console.log(isValidVatNumber("88117125")); // true
-// console.log(isValidVatNumber("53212539")); // true
-// console.log(isValidVatNumber("88117126")); // false
-
-const gov = [1, 2, 1, 2, 1, 2, 4, 1];
-//
-const vat = "88117125";
-const word = [...vat]; // 轉成一個一個【字串】的陣列
-const one = word.map((w) => Number(w)); // 轉成一個一個【數字】的陣列
-if (one[6] != 7) {
-  let box = [];
-  for (let a = 0; a < one.length; a++) {
-    box.push(gov[a] * one[a]);
-  }
-  const noSeven = box.map((n) => {
-    if (n >= 10) {
-      return numberReducer(n);
-    } else {
-      return n;
+function isValidVatNumber(vat) {
+  const word = [...vat]; // 轉成一個一個【字串】的陣列
+  const one = word.map((w) => Number(w)); // 轉成一個一個【數字】的陣列
+  if (one[6] != 7) {
+    // 如果第七位不是7
+    let box = [];
+    for (let a = 0; a < one.length; a++) {
+      box.push(gov[a] * one[a]); // 用空陣列裝相乘之積
     }
-  });
+    const noSeven = box.map((n) => {
+      // 用第12題的函數把數字變成一位數
+      if (n >= 10) {
+        return numberReducer(n);
+      } else {
+        return n;
+      }
+    });
 
-  noSevenPower = noSeven.reduce((a, b) => {
-    return a + b;
-  });
-  if (noSevenPower % 5 == 0) {
-    console.log("true");
-    // return true;
+    noSevenPower = noSeven.reduce((a, b) => {
+      // 用reduce計算累加值
+      return a + b;
+    });
+    if (noSevenPower % 5 == 0) {
+      // 判斷
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    console.log("false");
-    // return false;
+    one.splice(6, 1); // 已知第七位是7  先移除
+    let box = [];
+    for (let a = 0; a < one.length; a++) {
+      box.push(yes[a] * one[a]);
+    }
+    const isSeven = box.map((n) => {
+      if (n >= 10) {
+        return numberReducer(n);
+      } else {
+        return n;
+      }
+    });
+
+    isSevenPower = isSeven.reduce((a, b) => {
+      return a + b;
+    });
+    //已知第七位必是7 政府加權必是4 依規定結果必是0或1 因此判斷【累加值】或【累加值 + 1】
+    if (isSevenPower % 5 == 0 || (isSevenPower + 1) % 5 == 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
+
+console.log(isValidVatNumber("10458575")); // true
+console.log(isValidVatNumber("88117125")); // true
+console.log(isValidVatNumber("53212539")); // true
+console.log(isValidVatNumber("88117126")); // false
