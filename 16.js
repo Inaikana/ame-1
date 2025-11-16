@@ -9,8 +9,7 @@ function big(word) {
   const firstNum = one[0].charCodeAt(0); // 針對第一個字母 取它的 Unicode 編碼值
   const firstWord = String.fromCharCode(firstNum - 32); // 在Unicode編碼值中 【 小寫 - 32 = 大寫】
   one.splice(0, 1, firstWord); // 把換好的大寫塞進來
-  const done = one.reduce((a, b) => a + b); // 用reduce合併
-  return done;
+  return one.join("");
 }
 
 function toCamelCase(str) {
@@ -19,7 +18,7 @@ function toCamelCase(str) {
     //第一個單字不變 所以從1開始
     open[x] = big(open[x]); // 陣列[0]以外的所有元素 都進big(word) 使之變大寫
   }
-  return open.reduce((a, b) => a + b); // 用reduce合併
+  return open.join("");
 }
 
 console.log(toCamelCase("book")); // book
