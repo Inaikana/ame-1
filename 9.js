@@ -9,6 +9,10 @@ function removeAnchor(url) {
   return kirei;
 }
 
-console.log(removeAnchor("5xcampus.com")); // 印出 5xcampus.com
-console.log(removeAnchor("5xcampus.com/#about")); // 印出 5xcampus.com/
-console.log(removeAnchor("5xcampus.com/courses/?page=1#about")); // 印出 5xcampus.com/courses/?page=1
+const W = "jfvhdjhfdv_flkjolfd;";
+const P = W.split("_");
+console.log(P);
+
+// console.log(removeAnchor("5xcampus.com")); // 印出 5xcampus.com
+// console.log(removeAnchor("5xcampus.com/#about")); // 印出 5xcampus.com/
+// console.log(removeAnchor("5xcampus.com/courses/?page=1#about")); // 印出 5xcampus.com/courses/?page=1
