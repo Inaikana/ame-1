@@ -4,22 +4,23 @@
 // 範例：[1, 1, 0]，`0` 只有出現 1 次
 // [5, 5, 8, 8, 8, 4, 4]，`8` 出現了 3 次
 
-// function findOddElm(numbers) {
-//   // 實作寫在這裡
-// }
+function findOddElm(numbers) {
+  const word = numbers.map((n) => n.toString()); // 把陣列內容變成全部都是文字
+  const count = word.reduce((obj, key) => {
+    obj[key] = (obj[key] || 0) + 1;
+    return obj;
+  }, {});
 
-// console.log(findOddElm([1, 1, 2])); // 印出 2
-// console.log(findOddElm([5, 4, 2, 1, 5, 4, 2, 10, 10])); // 印出 1
-// console.log(findOddElm([0, 1, 0, 1, 0])); // 印出 0
-// console.log(findOddElm([1, 1, 2, -2, 5, 2, -1, -2, 5])); // 印出 -1
-// console.log(findOddElm([20, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5])); // 印出 5
+  // 物件無法用for of
+  for (const num in count) {
+    // 對每個count物件裡的key掃描
+    if (count[num] % 2 != 0) {
+      // 若key的值是奇數 就回傳key
+      return num;
+    }
+  }
+}
 
-const numbers = [20, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5];
-const word = numbers.map((n) => n.toString()); // 把陣列內容變成全部都是文字
-const count = word.reduce((obj, key) => {
-  obj[key] = (obj[key] || 0) + 1;
-  return obj;
-}, {});
 // 【count】為跟AI許的高級願望
 //  對word使用reduce  初始值為空物件
 //  <第一輪>
@@ -38,4 +39,9 @@ const count = word.reduce((obj, key) => {
 //  因為是obj[word[1]]為 undefinde  同上用判斷式賦予它初始值1
 //  同時於這個物件建立另一個key為word[1]
 //  如此來分類統計陣列中的元素
-console.log(count);
+
+console.log(findOddElm([1, 1, 2])); // 印出 2
+console.log(findOddElm([5, 4, 2, 1, 5, 4, 2, 10, 10])); // 印出 1
+console.log(findOddElm([0, 1, 0, 1, 0])); // 印出 0
+console.log(findOddElm([1, 1, 2, -2, 5, 2, -1, -2, 5])); // 印出 -1
+console.log(findOddElm([20, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5])); // 印出 5

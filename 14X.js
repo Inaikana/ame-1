@@ -4,7 +4,30 @@
 // 範例："AAABBBDDDAABBBCC" -> ['A', 'B', 'D', 'A', 'B', 'C']
 
 function uniqueOrder(sequence) {
-  // 實作寫在這裡
+  let arr;
+  let asw = [];
+
+  if (typeof sequence == typeof "string") {
+    arr = [...sequence];
+  } else {
+    arr = sequence;
+  }
+
+  const word = arr.map((n) => n.toString()); // 把陣列內容變成全部都是文字
+  const count = word.reduce((obj, key) => {
+    obj[key] = (obj[key] || 0) + 1;
+    return obj;
+  }, {});
+
+  for (const key in count) {
+    if (key.charCodeAt(0) > 64) {
+      asw.push(key);
+    } else {
+      asw.push(Number(key));
+    }
+  }
+
+  return asw;
 }
 
 console.log(uniqueOrder("AABCC")); // [ 'A', 'B', 'C']
