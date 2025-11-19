@@ -13,17 +13,10 @@ function uniqueOrder(sequence) {
     arr = sequence;
   }
 
-  for (let i = 1; i < arr.length - 1; i++) {
-    if (arr[i - 1] != arr[i] && arr[i] != arr[i + 1]) {
-      asw.push(arr[i - 1]);
-      asw.push(arr[i]);
-      asw.push(arr[i + 1]);
-      const next = i + 1;
-      i = next;
-    } else if (arr[0] != arr[1]) {
-      asw.push(arr[0]);
-    } else if (arr[i] != arr[i + 1]) {
-      asw.push(arr[i + 1]);
+  for (let i = 0; i < arr.length - 1; i++) {
+    if ((arr[i] = arr[i + 1])) {
+      arr.splice(1, i);
+      // i--;
     }
   }
 
