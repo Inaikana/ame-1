@@ -5,17 +5,21 @@
 
 function uniqueOrder(sequence) {
   let arr;
-  let asw = [];
 
   if (typeof sequence == typeof "string") {
+    // 若是字串 就轉成陣列
     arr = [...sequence];
   } else {
     arr = sequence;
   }
 
   for (let i = 0; i < arr.length - 1; i++) {
-    if ((arr[i] = arr[i + 1])) {
+    // 用迴圈掃描每個元素 如果它跟下一個一樣 就移除它
+    // 因為要跟下一個比 所以只做到 arr.length - 1
+    if (arr[i] == arr[i + 1]) {
       arr.splice(i + 1, 1);
+      i--;
+      // 移除後若繼續執行 會跳過下一個 因此要先把i定住 從這輪再掃描一次
     }
   }
 
