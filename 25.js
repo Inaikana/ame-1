@@ -23,11 +23,20 @@
 //   }
 //   return digits;
 
-const num = 0.025156134654635;
-const word = [...num.toString()];
+const num = 1.24999;
+const digits = 2;
+const cut = num.toString().split("."); // 分解小數
+const word = [...cut[1]]; // 所有.後面的數字的一個個數字的陣列
+const n = cut[1].length; //  .後面有幾個數字
+const noFloat = num * Math.pow(10, n); // 暫時把num變成整數
+const Float = noFloat / Math.pow(10, n); // 把num變回小數
 
 if (word[word.length - 1] != 5) {
-  console.log("普通四捨五入");
+  if (digits == undefined) {
+    console.log(Math.round(num));
+  } else {
+    console.log(Math.round(num * Math.pow(10, digits)) / Math.pow(10, digits));
+  }
 } else {
   console.log("要做銀行家");
 }
