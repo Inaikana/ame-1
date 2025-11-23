@@ -14,14 +14,8 @@ import calcGCD from "./23.js";
 // console.log(calcLCM(21, 15, 18)); // 630
 // console.log(calcLCM(104, 96, 36, 88)); // 41184
 
-// const numbers = [104, 96, 36, 88];
-// const theBigest = calcGCD(...numbers); // 最大公因數
-// const child = numbers.map((num) => num / theBigest);
-// const together = child.reduce((a, b) => a * b);
-// console.log(together);
-
 function findKid(num) {
-  // 找出所有因數(1省略)
+  // 找出num的所有因數(1省略)
   let kid = [];
   for (let i = 2; i <= num; i++) {
     if (num % i == 0) {
@@ -31,12 +25,24 @@ function findKid(num) {
   return kid;
 }
 
-const onlyKid = findKid(1240).filter((kid) => {
-  if (findKid(kid).length == 1) {
-    return true;
-  }
-});
-// 質因數
+function onlyKid(num) {
+  //  找出num的所有質因數
+  return findKid(num).filter((kid) => {
+    if (findKid(kid).length == 1) {
+      return true;
+    }
+  });
+}
 
-console.log(findKid(1240));
-console.log(onlyKid);
+const numbers = [104, 96, 36, 88];
+const min = Math.min(...numbers);
+
+for (let x = 2; x <= min; x++) {
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % x == 0) {
+    }
+  }
+}
+
+// console.log(findKid(1315));
+// console.log(onlyKid(47));
