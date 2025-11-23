@@ -32,7 +32,9 @@ function calcGCD(...numbers) {
   }
 }
 
-console.log(calcGCD(10)); // 10
-console.log(calcGCD(103, 27)); // 1
-console.log(calcGCD(21, 15, 18)); // 3
-console.log(calcGCD(104, 96, 36, 88)); // 4
+// console.log(calcGCD(10)); // 10
+// console.log(calcGCD(103, 27)); // 1
+// console.log(calcGCD(21, 15, 18)); // 3
+// console.log(calcGCD(104, 96, 36, 88)); // 4
+
+export default calcGCD;
