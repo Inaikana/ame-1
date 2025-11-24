@@ -34,15 +34,46 @@ function onlyKid(num) {
   });
 }
 
-const numbers = [104, 96, 36, 88];
-const min = Math.min(...numbers);
-
-for (let x = 2; x <= min; x++) {
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % x == 0) {
+function howMany(num, y) {
+  // 找出 num 有幾個 y 因數
+  // 例 625 = 5^4 > 得到4
+  let start = num;
+  let n;
+  for (n = 0; start >= y; n++) {
+    if (start % y == 0) {
+      start = start / y;
+    } else {
+      break;
     }
   }
+  return n;
 }
 
-// console.log(findKid(1315));
-// console.log(onlyKid(47));
+function useOver(num, y) {
+  // 找完 num 有幾個 y 因數後 除完剩下的值
+  let start = num;
+  for (let n = 0; start >= y; n++) {
+    if (start % y == 0) {
+      start = start / y;
+    } else {
+      break;
+    }
+  }
+  return start;
+}
+
+console.log(howMany(625, 5));
+console.log(useOver(625, 5));
+
+// const numbers = [104, 96, 36, 88];
+// const min = Math.min(...numbers);
+// let cell = [];
+// let cellNum;
+// for (let x = 2; x <= min; x++) {
+//   for (let i = 0; i < numbers.length; i++) {
+//     if (numbers[i] % x == 0) {
+//       cell.push(x);
+//       continue;
+//     }
+//   }
+// }
