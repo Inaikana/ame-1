@@ -8,16 +8,22 @@ import calcGCD from "./23.js";
 function Xtwo(n1, n2) {
   // 可以取得兩個數的最小公倍數
   const ans = (n1 * n2) / calcGCD(n1, n2);
+  // 兩個數相乘會等於最大公因數*最小公倍數
+  // 因此最小公倍數 = 兩數相乘 / 最大公因數
   return ans;
 }
 
 function calcLCM(...numbers) {
   if (numbers.length < 2) {
+    // 只有輸入一個值時 直接回傳
     return numbers[0];
   } else {
     const LCM = numbers.reduce((r, n) => {
       return Xtwo(r, n);
     });
+    // 當輸入超過兩個值時 先取前兩個數字的最小公倍數
+    // 再用這個最小公倍數 和第三個數字 取新一輪的最小公倍數
+    // 直到全部都取完 那個最終結果就會是全部數字的最小公倍數
 
     return LCM;
   }
